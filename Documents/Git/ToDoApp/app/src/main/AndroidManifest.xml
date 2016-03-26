@@ -1,0 +1,57 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.todolist.app">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
+
+    <application
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:theme="@style/AppTheme"
+    android:name=".activities.App">
+        <receiver
+            android:name=".AlarmManager.MyAlarmReceiver"
+            android:enabled="true"
+            android:process=":remote" >
+        </receiver>
+        <service
+            android:name=".AlarmManager.MyTestService"
+            android:enabled="true"
+            android:exported="false"/>
+
+    <activity
+        android:name=".activities.LoginActivity"
+        android:label="@string/app_name" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+
+    <meta-data
+        android:name="com.parse.APPLICATION_ID"
+        android:value="utQMLxMYur35Dt5ZSEkwuVgQ8LgOfyloEw70wFlQ" />
+    <meta-data
+        android:name="com.parse.CLIENT_KEY"
+        android:value="6rhHRhdOD784fTAjHPr0XQi7FLoUUN9cWopz0Ouh" />
+
+    <activity android:name=".activities.DisplayTaskActivity"/>
+    <activity android:name=".activities.MainActivity"/>
+    <activity android:name=".activities.DispatchActivity"/>
+    <activity android:name=".activities.SignUpActivity"/>
+    <activity android:name=".activities.CreateATeamActivity"/>
+    <activity android:name=".activities.PhotoIntentActivity"/>
+    <activity android:name=".activities.UserActivity"/>
+
+
+
+
+
+    </application>
+</manifest>

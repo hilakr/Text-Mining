@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item android:id="@+id/mangeTask"
+        android:title="@string/Manage_Tasks" >
+    </item>
+
+
+    <item android:id="@+id/logout"
+        android:title="@string/logout"
+        >
+    </item>
+
+
+
+    <item
+        android:id="@+id/about"
+        android:title="@string/about"
+        android:icon="@drawable/ic_action_about"
+        app:showAsAction="always">
+        <menu>
+            <item android:id="@+id/app_name"
+                android:title="@string/app_name_menu" >
+            </item>
+            <item android:id="@+id/owners"
+                android:title="@string/student_name" >
+            </item>
+        </menu>
+    </item>
+
+
+
+</menu>

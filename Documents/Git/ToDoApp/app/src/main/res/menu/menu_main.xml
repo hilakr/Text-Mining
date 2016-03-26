@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item android:id="@+id/manageTeam"
+        android:title="@string/manage_team" >
+    </item>
+
+    <item android:id="@+id/addNewTask"
+          android:title="@string/Add_New" >
+    </item>
+
+    <item android:id="@+id/logout"
+        android:title="@string/logout"
+       >
+</item>
+
+    <item
+        android:id="@+id/setting"
+        android:icon="@drawable/ic_action_refresh_1"
+        android:title="@string/action_settings"
+        app:showAsAction="always">
+        <menu>
+            <item android:id="@+id/checkForNewTasks"
+                android:title="@string/check_for_new_tasks" >
+            </item>
+            <item android:id="@+id/changeTimeSync"
+                android:title="@string/change_sync_time" >
+            </item>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/action_sort"
+        android:icon="@drawable/ic_action_sort_by_size_1"
+        android:title="@string/action_sort"
+        app:showAsAction="always">
+        <menu>
+            <item android:id="@+id/sortByDueTime"
+                android:title="@string/sort_time" >
+            </item>
+            <item android:id="@+id/sortByPriority"
+                android:title="@string/sort_priority" >
+            </item>
+            <item android:id="@+id/sortByStatus"
+                android:title="@string/sort_status" >
+            </item>
+
+
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/about"
+        android:title="@string/about"
+        android:icon="@drawable/ic_action_about"
+        app:showAsAction="always">
+        <menu>
+            <item android:id="@+id/app_name"
+                android:title="@string/app_name_menu" >
+            </item>
+            <item android:id="@+id/owners"
+                android:title="@string/student_name" >
+            </item>
+        </menu>
+    </item>
+
+
+
+</menu>
