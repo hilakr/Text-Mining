@@ -1,52 +1,17 @@
 {
   "project_info": {
-    "project_id": "todolistapp-1249",
-    "project_number": "20835025403",
-    "name": "ToDoListApp"
+    "project_id": "managetasks-22e62",
+    "project_number": "677854637588",
+    "name": "ManageTasks"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:20835025403:android:176d6bda177e8a54",
-        "client_id": "android:com.example.hila.sqllitesimpleexample",
+        "mobilesdk_app_id": "1:677854637588:android:0bb5c1b49a7d001a",
+        "client_id": "android:com.hilareut.todoapp",
         "client_type": 1,
         "android_client_info": {
-          "package_name": "com.example.hila.sqllitesimpleexample",
-          "certificate_hash": []
-        }
-      },
-      "oauth_client": [],
-      "api_key": [],
-      "services": {
-        "analytics_service": {
-          "status": 2,
-          "analytics_property": {
-            "tracking_id": "UA-75588560-1"
-          }
-        },
-        "cloud_messaging_service": {
-          "status": 1,
-          "apns_config": []
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "google_signin_service": {
-          "status": 1
-        },
-        "ads_service": {
-          "status": 1
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:20835025403:android:61d2158b1fd48baf",
-        "client_id": "android:com.todolist.app",
-        "client_type": 1,
-        "android_client_info": {
-          "package_name": "com.todolist.app",
+          "package_name": "com.hilareut.todoapp",
           "certificate_hash": []
         }
       },

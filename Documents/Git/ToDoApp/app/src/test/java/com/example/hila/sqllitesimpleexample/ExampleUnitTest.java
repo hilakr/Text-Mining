@@ -1,4 +1,4 @@
-package com.todolist.app;
+package com.hilareut.todoapp;
 
 import org.junit.Test;
 

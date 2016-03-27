@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">To Do List</string>
+    <string name="app_name">Manage Tasks</string>
 
 
     <string name="action_sort">Sort By</string>
     <string name="action_refresh">Refresh app</string>
-    <string name="sort_time">TIME</string>
+    <string name="sort_time">Due Time</string>
     <string name="sort_priority">Priority</string>
     <string name="sort_waiting_status">Waiting</string>
     <string name="sort_InProcess">In Process</string>

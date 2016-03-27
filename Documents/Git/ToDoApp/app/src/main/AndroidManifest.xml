@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-package="com.todolist.app">
+package="com.hilareut.todoapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,19 +14,19 @@ package="com.todolist.app">
     android:icon="@mipmap/ic_launcher"
     android:label="@string/app_name"
     android:theme="@style/AppTheme"
-    android:name=".activities.App">
+    android:name="com.hilareut.todoapp.activities.App">
         <receiver
-            android:name=".AlarmManager.MyAlarmReceiver"
+            android:name="com.hilareut.todoapp.AlarmManager.MyAlarmReceiver"
             android:enabled="true"
             android:process=":remote" >
         </receiver>
         <service
-            android:name=".AlarmManager.MyTestService"
+            android:name="com.hilareut.todoapp.AlarmManager.MyTestService"
             android:enabled="true"
             android:exported="false"/>
 
     <activity
-        android:name=".activities.LoginActivity"
+        android:name="com.hilareut.todoapp.activities.LoginActivity"
         android:label="@string/app_name" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -41,13 +41,13 @@ package="com.todolist.app">
         android:name="com.parse.CLIENT_KEY"
         android:value="6rhHRhdOD784fTAjHPr0XQi7FLoUUN9cWopz0Ouh" />
 
-    <activity android:name=".activities.DisplayTaskActivity"/>
-    <activity android:name=".activities.MainActivity"/>
-    <activity android:name=".activities.DispatchActivity"/>
-    <activity android:name=".activities.SignUpActivity"/>
-    <activity android:name=".activities.CreateATeamActivity"/>
-    <activity android:name=".activities.PhotoIntentActivity"/>
-    <activity android:name=".activities.UserActivity"/>
+    <activity android:name="com.hilareut.todoapp.activities.DisplayTaskActivity"/>
+    <activity android:name="com.hilareut.todoapp.activities.MainActivity"/>
+    <activity android:name="com.hilareut.todoapp.activities.DispatchActivity"/>
+    <activity android:name="com.hilareut.todoapp.activities.SignUpActivity"/>
+    <activity android:name="com.hilareut.todoapp.activities.CreateATeamActivity"/>
+    <activity android:name="com.hilareut.todoapp.activities.PhotoIntentActivity"/>
+    <activity android:name="com.hilareut.todoapp.activities.UserActivity"/>
 
 
 
