@@ -1,0 +1,170 @@
+---
+title: "GenderClassifier"
+author: "HilaReut"
+date: "April 25, 2016"
+output: html_document
+---
+
+Gender classifier data:
+This data set was used to train a CrowdFlower AI gender predictor.
+Contributors were asked to simply view a Twitter profile and judge whether the user was a male, a female, or a brand (non-individual). The dataset contains 20,000 rows, each with a user name, a random tweet, account profile and image, location, and even link and sidebar color.
+
+We choose to analyze what are the uses words by male and by female. and to see if we can learn about male and female tweets. 
+
+Downloaded the data from : http://www.crowdflower.com/data-for-everyone/
+
+```{r }
+library(RCurl)
+#Get the data
+url = "http://www.crowdflower.com/wp-content/uploads/2016/03/gender-classifier-DFE-791531.csv"
+file = getURL(url)
+data = read.csv(text = file)
+```
+
+Arrange the data - because we have a big dataset with 20,000 rows, we needed to arrange the data .  we took 3,000 rows.
+
+```{r}
+#Manipulate the data 
+data <- data[data$X_unit_id < 815720437,] 
+
+```
+
+We wanted to test whether there is a difference in amount of female use Twitter, compared with the amount of male uses Tweitter.
+
+```{r}
+#Get female - male relation
+length(data$gender=="male")
+length(data$gender=="female")
+
+```
+
+We saw that the amount is equal between boys and girls.
+```{r}
+#Display with barplot graph
+a = c(length(data$gender=="male"),length(data$gender=="female"))
+barplot(a,names.arg = c("male","female"),col = c("blue","red"), main="Amount of male and female use Twitter")
+
+
+```
+
+In order to find out what are the most frequent used words by males and females, on Twitter we had to take the following steps:
+1. Take male/female text on twiteer .
+
+```{r}
+#Get all male twitter text
+text_male = subset(data, data$gender=="male")
+text_male = text_male$text
+```
+
+2.Create list of words from text_male
+```{r}
+#create list from text_male
+text_male_list <- text_male[1:length(text_male)]
+words = list()
+for ( i in text_male_list) {
+  # Merge the two lists.
+  words <- c(words,unlist(strsplit(i," ")))
+}
+
+```
+3.Create a list of word - frequency 
+```{r}
+#key = word , value = frequency
+count = 0;
+mylist = list()
+for (word in words){
+  for (xWord in words){
+    if (word == xWord)
+      count =  count + 1;
+  }
+  key <- word
+  value <- count
+  mylist[[ key ]] <- value
+  count = 0;
+}
+
+
+```
+
+4.Sort in descending order
+```{r}
+library(data.table)
+#sort the data
+DT1 = mylist
+DT1 = data.table(x=c(names(mylist)),v=c(do.call(rbind, lapply(DT1, as.numeric))))
+DT1 = DT1[order(-DT1$v),]
+
+```
+
+We chose 6 randomly words and display it with pie
+```{r}
+words_male = DT1[1:1200]
+w1 = words_male[110]
+w2 = words_male[164]
+w3 = words_male[701]
+w4 = words_male[272]
+w5 = words_male[107]
+w6 = words_male[1200]
+# Simple Pie Chart
+slices <- c(w1$v,w2$v,w3$v,w4$v,w5$v,w6$v)
+lbls <- c(w1$x,w2$x,w3$x,w4$x,w5$x,w6$x)
+pie(slices, labels = lbls, main="Pie Chart Males frequency words")
+```
+
+A few words's explantion we found:
+@onedirection is a boy band
+#AMAs  is a tag for American Music Awards
+#SPECTRE is james bond film
+
+We did the same for females
+
+```{r}
+#Get all female twitter text
+text_female = subset(data, data$gender=="female")
+text_female = text_female$text
+print(length(text_female))
+v <- text_female[1:length(text_female)]
+#create list of key and value 
+#key = word , value = frequency
+x = list()
+for ( i in v) {
+  # Merge the two lists.
+  x <- c(x,unlist(strsplit(i," ")))
+}
+count = 0;
+mylist = list()
+for (word in x){
+  for (xWord in x){
+    if (word == xWord)
+      count =  count + 1;
+  }
+  key <- word
+  value <- count
+  mylist[[ key ]] <- value
+  count = 0;
+}
+#sort the data
+DT = mylist
+DT = data.table(x=c(names(mylist)),v=c(do.call(rbind, lapply(DT, as.numeric))))
+DT = DT[order(-DT$v),]
+#create plot
+words_female = DT[1:1200]
+wf1 = words_female[110]
+wf2 = words_female[107]
+wf3 = words_female[345]
+wf4 = words_female[272]
+wf5 = words_female[618]
+wf6 = words_female[1200]
+
+
+# Simple Pie Chart
+slices <- c(wf1$v,wf2$v,wf3$v,w4$v,wf5$v,wf6$v)
+lbls <- c(wf1$x,wf2$x,wf3$x,wf4$x,wf5$x,wf6$x)
+pie(slices, labels = lbls, main="Pie Chart of females frequency words")
+
+```
+
+
+We can see from randomly 6 words that girls tend to be more emoitinal due to tags they use.  
+
+To sum up, of course, isn???t to say that every female account we saw had one of those, but rather that if a heart or for example the above words appeared in a tweet or profile, the model was very confident that account belonged to a woman.
